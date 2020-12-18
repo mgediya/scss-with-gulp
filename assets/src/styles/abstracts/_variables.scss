@@ -1,0 +1,86 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+/// Regular ( Open Sans ) font family
+$font-family-base:  'Open Sans', 'Arial', sans-serif !default;
+// $font-family-hgroup:  'Open Sans', 'Arial', sans-serif !default;
+
+/// body contect text size
+$font-size-base:    rem(16px) !default;
+$font-size-small:   rem(14px) !default;
+$font-size-large:   rem(18px) !default;
+
+// Colors
+$primary :   #41b21e !default;
+$secondary : #b96c23 !default;
+
+// Start with assigning color names to specific hex values.
+$white:  #ffffff !default;
+$black:  #000000 !default;
+$gray:   #dee3e2 !default;
+
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg:       $white !default;
+$body-color:    $black !default;
+
+// text color
+$text-color:   $black !default ;
+
+// Heading font family
+$h1-size: rem(52px) !default;
+$h2-size: rem(42px) !default;
+$h3-size: rem(36px) !default;
+$h4-size: rem(24px) !default;
+$h5-size: rem(20px) !default;
+$h6-size: rem(18px) !default;
+
+$hgroup-margin-bottom: rem(15px) !default;
+$hgroup-font-family:   inherit !default;
+$hgroup-font-weight:   700 !default;
+$hgroup-line-height:   1.1 !default;
+$hgroup-color:         $text-color !default;
+
+// Forms
+$label-color:           $text-color;
+$label-font-weight:     400;
+$label-font-family:     $font-family-base;
+$label-font-size:       $font-size-small;
+
+$input-bg:                 $white;
+$input-font-family:        $font-family-base;
+$input-font-size:          $font-size-base;
+$input-font-weight:        400;
+$input-color:              $black;
+$input-color-placeholder:  rgba($black,0.5);
+$input-height-base:        40px;
+$input-radius:             0;
+$input-border-color:       $secondary;
+$input-border-color-focus: $secondary;
+$textarea-height-base:     150px;
+
+// set assets path
+$img: '../images'; // background-img:url( #{$img}/)
+$fonts: '../fonts';
+
+/// Container's maximum width
+$container-width:   1170px !default;
+$gutters : 30px;
+
+// media query breakpoints.
+$breakpoints: (
+  'sm': 641px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1200px
+);
+
+// spacing : padding and margin
+$spaceamounts: (30);
+
+// Background color classes
+$bgColor-map: (
+  'white' : $white,
+  'black' : $black
+);
