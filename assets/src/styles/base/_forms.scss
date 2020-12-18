@@ -1,6 +1,6 @@
 form label {
 	display: block;
-	margin-bottom: 10px;
+	margin-bottom: rem(10px);
 	line-height: 1.5;
 	font-weight: $label-font-weight;
 	font-family: $label-font-family;
@@ -42,11 +42,11 @@ textarea,
 select {
 	width: 100%;
 	height: $input-height-base;
-	padding: 0 15px;
+	padding: 0 rem(15px);
 	color: $input-color;
 	font-size: $input-font-size;
 	font-weight: $input-font-weight;
-	border: 1px solid $input-border-color;
+	border: rem(1px) solid $input-border-color;
 	border-radius: 0;
 
 	&:focus {
@@ -58,7 +58,7 @@ select {
 textarea {
 	display: block;
 	height: $textarea-height-base;
-	padding: 10px 15px;
+	padding: rem(10px) rem(15px);
 	resize: none;
 	overflow: auto;
 }
@@ -67,7 +67,7 @@ select {
 	-webkit-appearance: none;
 	padding-right: 1.875em;
 	background-image: url(#{$img}/select-down-arrow.svg);
-	background-size: 14px 7px;
+	background-size: rem(14px) rem(7px);
 	background-position: right 0.5em center;
 	background-repeat: no-repeat;
 }
@@ -104,7 +104,7 @@ select:-webkit-autofill:focus {
 }
 
 .form-group {
-	margin-bottom: 20px;
+	margin-bottom: rem(20px);
 }
 
 // Custom radio button
@@ -140,12 +140,12 @@ select:-webkit-autofill:focus {
 				content: "";
 				display: inline-block;
 				vertical-align: middle;
-				height: 10px;
-				width: 10px;
-				margin-top: -3px;
-				margin-right: 10px;
+				height: rem(10px);
+				width: rem(10px);
+				margin-top: - rem(3px);
+				margin-right: rem(10px);
 				background-color: $white;
-				border: 2px solid $white;
+				border: rem(2px) solid $white;
 				border-radius: 50%;
 				box-shadow: 0 0 0px 2px $black;
 				cursor: pointer;
@@ -168,10 +168,10 @@ select:-webkit-autofill:focus {
 			top: 4px;
 			left: 7px;
 			display: block;
-			width: 5px;
-			height: 10px;
+			width: rem(5px);
+			height: rem(10px);
 			border: solid $secondary;
-			border-width: 0 2px 2px 0;
+			border-width: 0 rem(2px) rem(2px) 0;
 			transform: rotate(42deg);
 		}
 	}
@@ -183,10 +183,10 @@ select:-webkit-autofill:focus {
 			position: relative;
 			display: inline-block;
 			vertical-align: middle;
-			margin-right: 8px;
-			padding: 8px;
+			margin-right: rem(8px);
+			padding: rem(8px);
 			background-color: transparent;
-			border: 2px solid $secondary;
+			border: rem(2px) solid $secondary;
 			-webkit-appearance: none;
 			cursor: pointer;
 		}

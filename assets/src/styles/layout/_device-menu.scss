@@ -168,7 +168,7 @@ $hamburger: ".hamburger";
 
             &.has-sub {
                 > a {
-                    padding-right: 40px;
+                    padding-right: rem(40px);
                 }
             }
 
@@ -176,14 +176,14 @@ $hamburger: ".hamburger";
                 font-size: $font-size-large - 2;
 
                 a {
-                    padding-left: 25px;
+                    padding-left: rem(25px);
                 }
 
                 li {
                     font-size: $font-size-large - 3;
 
                     a {
-                        padding-left: 35px;
+                        padding-left: rem(35px);
                     }
                 }
             }

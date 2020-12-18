@@ -91,16 +91,6 @@
     }
 }
 
-// bg color
-@each $name, $color in $bgColor-map {
-    .bg-#{$name} {
-        background-color: $color;
-    }
-    .text-#{$name} {
-        color: $color;
-    }
-}
-
 // input placeholder style
 @mixin placeholder {
     &::-webkit-input-placeholder {
@@ -126,6 +116,7 @@
     text-transform: none;
     content: $content;
 }
+
 // custom scroll
 @mixin custom-scroll($color1: $secondary) {
     &::-webkit-scrollbar {

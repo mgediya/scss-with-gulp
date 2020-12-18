@@ -2,7 +2,7 @@
  * Basic typography style for copy text
  */
 html {
-	@include rem-baseline;
+	@include rem-baseline(16px);
 }
 body {
 	min-height: 100%;
@@ -98,16 +98,16 @@ p {
 }
 
 ul {
-	padding-left: 20px;
-	margin-bottom: 15px;
+	padding-left: rem(10px);
+	margin-bottom: rem(15px);
 
 	ul {
 		margin-bottom: 0;
 	}
 
 	li {
-		padding-top: 6px;
-		padding-bottom: 6px;
+		padding-top: rem(6px);
+		padding-bottom: rem(6px);
 
 		&:last-child {
 			padding-bottom: 0;
@@ -116,16 +116,16 @@ ul {
 }
 
 ol {
-	padding-left: 20px;
-	margin-bottom: 15px;
+	padding-left: rem(20px);
+	margin-bottom: rem(15px);
 
 	ol {
 		margin-bottom: 0;
 	}
 
 	li {
-		padding-top: 6px;
-		padding-bottom: 6px;
+		padding-top: rem(6px);
+		padding-bottom: rem(6px);
 
 		&:last-child {
 			padding-bottom: 0;
@@ -136,15 +136,15 @@ ol {
 blockquote {
 	position: relative;
 	display: block;
-	margin-bottom: 25px;
-	padding: 20px 20px;
+	margin-bottom: rem(25px);
+	padding: rem(20px) rem(20px);
 	text-align: left;
 	line-height: 2;
 	font-size: $font-size-large;
 	font-style: italic;
 	color: $text-color;
 	background-color: $gray;
-	border-left: 4px solid $primary;
+	border-left: rem(4px) solid $primary;
 
 	p {
 		font-size: inherit;
@@ -156,9 +156,9 @@ blockquote {
 
 hr {
 	height: 0;
-	margin: 10px auto 40px;
+	margin: rem(10px) auto rem(40px);
 	border: 0 $black solid;
-	border-top-width: 1px;
+	border-top-width: rem(1px);
 	overflow: visible;
 }
 
@@ -223,7 +223,7 @@ table {
 	td,
 	th {
 		vertical-align: bottom;
-		border-bottom: 1px solid $gray;
-		padding: 10px;
+		border-bottom: rem(1px) solid $gray;
+		padding: rem(10px);
 	}
 }

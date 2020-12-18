@@ -11,8 +11,8 @@ $font-size-small:   rem(14px) !default;
 $font-size-large:   rem(18px) !default;
 
 // Colors
-$primary :   #41b21e !default;
-$secondary : #b96c23 !default;
+$primary :   #1eb2a6 !default;
+$secondary : #ffa34d !default;
 
 // Start with assigning color names to specific hex values.
 $white:  #ffffff !default;
@@ -54,11 +54,11 @@ $input-font-size:          $font-size-base;
 $input-font-weight:        400;
 $input-color:              $black;
 $input-color-placeholder:  rgba($black,0.5);
-$input-height-base:        40px;
+$input-height-base:        rem(42px);
 $input-radius:             0;
 $input-border-color:       $secondary;
 $input-border-color-focus: $secondary;
-$textarea-height-base:     150px;
+$textarea-height-base:     rem(150px);
 
 // set assets path
 $img: '../images'; // background-img:url( #{$img}/)
@@ -70,13 +70,17 @@ $gutters : 30px;
 
 // media query breakpoints.
 $breakpoints: (
-  'sm': 641px,
-  'md': 768px,
-  'lg': 1024px,
-  'xl': 1200px
+  'sm': 576px, // Small devices (landscape phones, 576px and up)
+  'md': 768px, // Medium devices (tablets, 768px and up)
+  'lg': 992px, // Large devices (desktops, 992px and up)
+  'xl': 1200px // Extra large devices (large desktops, 1200px and up)
 );
 
+// advance utilities
+$advance-utilities : true ;
+
 // spacing : padding and margin
+$spacing : true ;
 $spaceamounts: (30);
 
 // Background color classes

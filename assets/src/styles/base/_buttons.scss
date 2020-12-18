@@ -1,6 +1,6 @@
 .btn {
 	display: inline-block;
-	padding: 10px 15px;
+	padding: rem(10px) rem(15px);
 	vertical-align: top;
 	color: $white;
 	font-size: $font-size-base;
@@ -21,11 +21,11 @@
 		background-color: $secondary;
 	}
 	&-link {
-		margin-bottom: 2px;
+		margin-bottom: rem(2px);
 		color: $primary;
 		font-size: $font-size-base;
 		text-decoration: none;
-		border-bottom: 1px solid $primary;
+		border-bottom: rem(1px) solid $primary;
 
 		&:hover,
 		&:focus {
