@@ -17,7 +17,7 @@ const options = require("./config"); //paths and other options from config.js
 function clean() {
   // You can use multiple globbing patterns as you would with `gulp.src`,
   // for example if you are using del 2.0 or above, return its promise
-  return del(`${options.paths.dest.base}`);
+  return del(`${options.paths.dist.base}`);
 }
  
 /*
@@ -36,7 +36,7 @@ function styles() {
   }))
   .pipe(sourcemaps.write('.'))
   .pipe(browserSync.stream())
-  .pipe(gulp.dest(options.paths.dest.css));
+  .pipe(gulp.dest(options.paths.dist.css));
 }
 
 function scripts() {
@@ -44,11 +44,11 @@ function scripts() {
   .pipe(babel())
   .pipe(uglify())
   .pipe(concat('scripts.min.js'))
-  .pipe(gulp.dest(options.paths.dest.scripts));
+  .pipe(gulp.dest(options.paths.dist.scripts));
 }
 
 function images(){
-  return gulp.src(`${options.paths.src.img}/**/*`).pipe(gulp.dest(options.paths.dest.img));
+  return gulp.src(`${options.paths.src.img}/**/*`).pipe(gulp.dest(options.paths.dist.img));
 }
  
 function watch() {

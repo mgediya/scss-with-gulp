@@ -10,11 +10,11 @@ module.exports = {
 			scripts: "assets/src/scripts",
 			img: "assets/src/images/"
 		},
-		dest: {
-			base: "assets/dest/",
-			css: "assets/dest/styles/",
-			scripts: "assets/dest/scripts/",
-			img: "assets/dest/images/"
+		dist: {
+			base: "assets/dist/",
+			css: "assets/dist/styles/",
+			scripts: "assets/dist/scripts/",
+			img: "assets/dist/images/"
 		},
 		build: {
 			base: "assets/build",
