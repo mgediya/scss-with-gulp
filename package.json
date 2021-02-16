@@ -4,18 +4,20 @@
   "description": ">Very Basic Sass(SCSS) boilerplate.",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp",
+    "build": "gulp prod",
+    "prod": "gulp prod"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mgediya/zeal-scss.git.git"
+    "url": "git+https://github.com/mgediya/scss-with-gulp.git.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mgediya/zeal-scss.git/issues"
+    "url": "https://github.com/mgediya/scss-with-gulp.git/issues"
   },
-  "homepage": "https://github.com/mgediya/zeal-scss.git#readme",
+  "homepage": "https://github.com/mgediya/scss-with-gulp.git#readme",
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",

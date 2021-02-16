@@ -1,14 +1,14 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
-/// Regular ( Open Sans ) font family
+// Regular ( Open Sans ) font family
 $font-family-base:  'Open Sans', 'Arial', sans-serif !default;
 // $font-family-hgroup:  'Open Sans', 'Arial', sans-serif !default;
 
-/// body contect text size
-$font-size-base:    rem(16px) !default;
-$font-size-small:   rem(14px) !default;
-$font-size-large:   rem(18px) !default;
+// body contect text size
+$font-size-base:  rem(16px) !default;
+$font-size-small: rem(14px) !default;
+$font-size-large: rem(18px) !default;
 
 // Colors
 $primary :   #1eb2a6 !default;
@@ -19,16 +19,14 @@ $white:  #ffffff !default;
 $black:  #000000 !default;
 $gray:   #dee3e2 !default;
 
-// Body
-//
-// Settings for the `<body>` element.
+// Body color
 $body-bg:       $white !default;
 $body-color:    $black !default;
 
-// text color
+// Text color
 $text-color:   $black !default ;
 
-// Heading font family
+// Heading font Size
 $h1-size: rem(52px) !default;
 $h2-size: rem(42px) !default;
 $h3-size: rem(36px) !default;
@@ -60,15 +58,15 @@ $input-border-color:       $secondary;
 $input-border-color-focus: $secondary;
 $textarea-height-base:     rem(150px);
 
-// set assets path
+// Set assets path
 $img: '../images'; // background-img:url( #{$img}/)
 $fonts: '../fonts';
 
-/// Container's maximum width
-$container-width:   1170px !default;
-$gutters : 30px;
+// Container's maximum width
+$container-width: rem(1170px) !default;
+$gutters : rem(30px);
 
-// media query breakpoints.
+// Media Query breakpoints.
 $breakpoints: (
   'sm': 576px, // Small devices (landscape phones, 576px and up)
   'md': 768px, // Medium devices (tablets, 768px and up)
@@ -76,14 +74,14 @@ $breakpoints: (
   'xl': 1200px // Extra large devices (large desktops, 1200px and up)
 );
 
-// advance utilities
-$advance-utilities : true ;
+// Advance utilities
+$advance-utilities : false;
 
-// spacing : padding and margin
-$spacing : true ;
+// Spacing : padding and margin
+$spacing : true;
 $spaceamounts: (30);
 
-// Background color classes
+// Background and Text color classes(ex: .bg-white and .text-white)
 $bgColor-map: (
   'white' : $white,
   'black' : $black

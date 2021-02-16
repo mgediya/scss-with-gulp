@@ -73,6 +73,10 @@
 
 .align {
     &-items {
+        &-start {
+            align-items: flex-start;
+        }
+
         &-center {
             align-items: center;
         }
@@ -110,6 +114,10 @@
 
 .justify {
     &-content {
+        &-start {
+            justify-content: flex-start;
+        }
+
         &-center {
             justify-content: center;
         }
@@ -270,6 +278,10 @@ $sidesX: left, right;
             .align {
                 &-#{$bp-key} {
                     &-items {
+                        &-start {
+                            align-items: flex-start;
+                        }
+
                         &-center {
                             align-items: center;
                         }
@@ -288,6 +300,10 @@ $sidesX: left, right;
             .justify {
                 &-#{$bp-key} {
                     &-content {
+                        &-start {
+                            justify-content: flex-start;
+                        }
+
                         &-center {
                             justify-content: center;
                         }
