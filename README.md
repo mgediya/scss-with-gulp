@@ -23,29 +23,29 @@ gulp build
 To change the path of files and destination/build folder, edit options in **config.js** file
 ```sh
 {
-  config: {
-		port: 9050
-	},
-	paths: {
-		root: "./",
-		src: {
-			base: "assets/src/",
-			scss: "assets/src/styles/**/*.scss",
-			scripts: "assets/src/scripts",
-			img: "assets/src/images/"
-		},
-		dist: {
-			base: "assets/dist/",
-			css: "assets/dist/styles/",
-			scripts: "assets/dist/scripts/",
-			img: "assets/dist/images/"
-		},
-		build: {
-			base: "assets/build",
-			css: "assets/build/styles/",
-			scripts: "assets/build/scripts/",
-			img: "assets/build/images/"
-		}
-	}
+ config: {
+ port: 9050
+ },
+ paths: {
+  root: "./",
+   src: {
+    base: "assets/src/",
+     scss: "assets/src/styles/**/*.scss",
+     scripts: "assets/src/scripts",
+     img: "assets/src/images/"
+    },
+    dist: {
+     base: "assets/dist/",
+     css: "assets/dist/styles/",
+     scripts: "assets/dist/scripts/",
+     img: "assets/dist/images/"
+     },
+     build: {
+     base: "assets/build",
+     css: "assets/build/styles/",
+     scripts: "assets/build/scripts/",
+     img: "assets/build/images/"
+    }
+   }
 }
 ```
