@@ -1,12 +1,51 @@
-# SCSS With Gulp
+# Gulp with SCSS Starter Kit
 
-This is a sample project using the [sass Guidelines](https://sass-guidelin.es/)
+Gulp with SCSS Starter Kit - A repo which makes your development easier with predefined gulp tasks that help you to use with simple npm commands 
 
-Each folder of this project has its own `README.md` file to explain the purpose and add extra information. Be sure to browse the repository to see how it works.
+## Usage
 
-### How to start
+1. Install Dev Depedencies
+```sh
+npm install
+```
+2. To start development and server for live preview
+```sh
+gulp watch
+```
+3. To generate minifed files for production server
+```sh
+gulp build 
+```
 
-- install node 12
-- Install  `npm install`
-- In the command prompt, inside the folder where your .scss file exists, type the following then hit enter  `gulp watch`
+# Configuration
 
+
+To change the path of files and destination/build folder, edit options in **config.js** file
+```sh
+{
+  config: {
+		port: 9050
+	},
+	paths: {
+		root: "./",
+		src: {
+			base: "assets/src/",
+			scss: "assets/src/styles/**/*.scss",
+			scripts: "assets/src/scripts",
+			img: "assets/src/images/"
+		},
+		dist: {
+			base: "assets/dist/",
+			css: "assets/dist/styles/",
+			scripts: "assets/dist/scripts/",
+			img: "assets/dist/images/"
+		},
+		build: {
+			base: "assets/build",
+			css: "assets/build/styles/",
+			scripts: "assets/build/scripts/",
+			img: "assets/build/images/"
+		}
+	}
+}
+```
