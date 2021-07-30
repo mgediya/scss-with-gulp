@@ -1,51 +1,53 @@
 # Gulp with SCSS Starter Kit
 
-Gulp with SCSS Starter Kit - A repo which makes your development easier with predefined gulp tasks that help you to use with simple npm commands 
-
 ## Usage
 
 1. Install Dev Depedencies
 ```sh
-npm install
+npm install // or yarn install
 ```
 2. To start development and server for live preview
 ```sh
-gulp watch
+npm run dev // or yarn dev
 ```
 3. To generate minifed files for production server
 ```sh
-gulp build 
+npm run prod // or yarn prod
 ```
 
 # Configuration
 
-
 To change the path of files and destination/build folder, edit options in **config.js** file
 ```sh
 {
- config: {
- port: 9050
- },
- paths: {
-  root: "./",
-   src: {
-    base: "assets/src/",
-     scss: "assets/src/styles/**/*.scss",
-     scripts: "assets/src/scripts",
-     img: "assets/src/images/"
-    },
-    dist: {
-     base: "assets/dist/",
-     css: "assets/dist/styles/",
-     scripts: "assets/dist/scripts/",
-     img: "assets/dist/images/"
-     },
-     build: {
-     base: "assets/build",
-     css: "assets/build/styles/",
-     scripts: "assets/build/scripts/",
-     img: "assets/build/images/"
-    }
-   }
+  config: {
+      ...
+      port: 9050 // browser preview port
+  },
+  	paths: {
+		root: "./",
+		src: {
+			base: "./src",
+			scss: "./src/scss",
+			js: "./src/js",
+			img: "./src/images",
+			fonts: "./src/fonts"
+		},
+		dist: {
+			base: "./dist",
+			css: "./dist/css",
+			js: "./dist/js",
+			img: "./dist/images",
+			fonts: "./dist/fonts"
+		},
+		build: {
+			base: "./build",
+			css: "./build/dist/css",
+			js: "./build/dist/js",
+			img: "./build/dist/images",
+			fonts: "./build/dist/fonts"
+		}
+	}
+  ...
 }
 ```

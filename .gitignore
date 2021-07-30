@@ -26,6 +26,7 @@ Thumbs.db
 
 # SASS #
 ##########
+build
 dist
 .sass-cache
 html/.sass-cache

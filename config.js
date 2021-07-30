@@ -5,22 +5,25 @@ module.exports = {
 	paths: {
 		root: "./",
 		src: {
-			base: "assets/src/",
-			scss: "assets/src/styles/**/*.scss",
-			scripts: "assets/src/scripts",
-			img: "assets/src/images/"
+			base: "./src",
+			css: "./src/scss",
+			js: "./src/js",
+			img: "./src/images",
+			fonts: "./src/fonts"
 		},
 		dist: {
-			base: "assets/dist/",
-			css: "assets/dist/styles/",
-			scripts: "assets/dist/scripts/",
-			img: "assets/dist/images/"
+			base: "./dist",
+			css: "./dist/css",
+			js: "./dist/js",
+			img: "./dist/images",
+			fonts: "./dist/fonts"
 		},
 		build: {
-			base: "assets/build",
-			css: "assets/build/styles/",
-			scripts: "assets/build/scripts/",
-			img: "assets/build/images/"
+			base: "./build",
+			css: "./build/css",
+			js: "./build/js",
+			img: "./build/images",
+			fonts: "./build/fonts"
 		}
 	}
 }
