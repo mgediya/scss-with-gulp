@@ -4,7 +4,7 @@
 
 1. Install Dev Depedencies
 ```sh
-node > 14
+node v14 and upper
 ```
 2. Install Dev Depedencies
 ```sh
