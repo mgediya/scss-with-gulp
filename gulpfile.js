@@ -16,7 +16,6 @@ const options = require("./config"); //paths and other options from config.js
 const browserSync = require('browser-sync').create();
 
 const sass = require('gulp-sass'); //For Compiling SASS files
-const postcss = require('gulp-postcss'); //For Compiling tailwind utilities with tailwind config
 const concat = require('gulp-concat'); //For Concatinating js,css files
 const uglify = require('gulp-terser');//To Minify JS files
 const imagemin = require('gulp-imagemin'); //To Optimize Images
@@ -30,7 +29,7 @@ const purgecss = require('gulp-purgecss');// Remove Unused CSS from Styles
 const logSymbols = require('log-symbols'); //For Symbolic Console logs :) :P 
 
 //Load Previews on Browser on dev
-function livePreview(done){
+function livePreview(done) {
   browserSync.init({
     server: {
       baseDir: options.paths.root
@@ -38,104 +37,101 @@ function livePreview(done){
     port: options.config.port || 5000
   });
   done();
-} 
+}
 
 // Triggers Browser reload
-function previewReload(done){
-  console.log("\n\t" + logSymbols.info,"Reloading Browser Preview.\n");
+function previewReload(done) {
+  console.log("\n\t" + logSymbols.info, "Reloading Browser Preview.\n");
   browserSync.reload();
   done();
 }
 
 //Development Tasks
-function devHTML(){
+function devHTML() {
   return src(`${options.paths.src.base}/**/*.html`).pipe(dest(options.paths.root));
-} 
+}
 
-function devStyles(){
+function devStyles() {
   return src(`${options.paths.src.css}/**/*.scss`)
-  .pipe(sourcemaps.init())
-  .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([
-      require('autoprefixer'),
-    ]))
-    .pipe(concat({ path: 'style.css'}))
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(concat({ path: 'style.css' }))
     .pipe(cleanCSS())
     .pipe(sourcemaps.write('.'))
     .pipe(dest(options.paths.dist.css));
 }
 
-function devScripts(){
+function devScripts() {
   return src([
     `${options.paths.src.js}/libs/**/*.js`,
     `${options.paths.src.js}/**/*.js`,
     `!${options.paths.src.js}/**/external/*`
-  ]).pipe(concat({ path: 'scripts.js'})).pipe(dest(options.paths.dist.js));
+  ]).pipe(concat({ path: 'scripts.js' })).pipe(dest(options.paths.dist.js));
 }
 
-function devImages(){
+function devImages() {
   return src(`${options.paths.src.img}/**/*`).pipe(dest(options.paths.dist.img));
 }
 
-function devFonts(){
+function devFonts() {
   return src(`${options.paths.src.fonts}/**/*`).pipe(dest(options.paths.dist.fonts));
-} 
-
-function watchFiles(){
-  watch(`${options.paths.src.base}/**/*.html`,series(devHTML, devStyles, previewReload));
-  watch(`${options.paths.src.css}/**/*.scss`,series(devStyles, previewReload));
-  watch(`${options.paths.src.js}/**/*.js`,series(devScripts, previewReload));
-  watch(`${options.paths.src.fonts}/**/*`,series(devFonts, devHTML, previewReload));
-  watch(`${options.paths.src.img}/**/*`,series(devImages, previewReload));
-  watch(`gulpfile.js`,series(previewReload));
-  console.log("\n\t" + logSymbols.info,"Watching for Changes..\n");
 }
 
-function devClean(){
-  console.log("\n\t" + logSymbols.info,"Cleaning dist folder for fresh start.\n");
+function watchFiles() {
+  watch(`${options.paths.src.base}/**/*.html`, series(devHTML, devStyles, previewReload));
+  watch(`${options.paths.src.css}/**/*.scss`, series(devStyles, previewReload));
+  watch(`${options.paths.src.js}/**/*.js`, series(devScripts, previewReload));
+  watch(`${options.paths.src.fonts}/**/*`, series(devFonts, devHTML, previewReload));
+  watch(`${options.paths.src.img}/**/*`, series(devImages, previewReload));
+  watch(`gulpfile.js`, series(previewReload));
+  console.log("\n\t" + logSymbols.info, "Watching for Changes..\n");
+}
+
+function devClean() {
+  console.log("\n\t" + logSymbols.info, "Cleaning dist folder for fresh start.\n");
   return del([options.paths.dist.base]);
 }
 
 //Production Tasks (Optimized Build for Live/Production Sites)
-function prodHTML(){
+function prodHTML() {
   return src(`${options.paths.src.base}/**/*.html`).pipe(dest(options.paths.build.base));
 }
 
-function prodStyles(){
+function prodStyles() {
   return src(`${options.paths.dist.css}/**/*`)
-  .pipe(purgecss({
-    content: ['src/**/*.{html,js}'],
-    defaultExtractor: content => {
-      const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
-      const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
-      return broadMatches.concat(innerMatches)
-    }
-  }))
-  .pipe(cleanCSS())
-  .pipe(dest(options.paths.build.css));
+    .pipe(purgecss({
+      content: ['src/**/*.{html,js}'],
+      defaultExtractor: content => {
+        const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
+        const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
+        return broadMatches.concat(innerMatches)
+      }
+    }))
+    .pipe(cleanCSS())
+    .pipe(dest(options.paths.build.css));
 }
 
-function prodScripts(){
+function prodScripts() {
   return src([
     `${options.paths.src.js}/libs/**/*.js`,
     `${options.paths.src.js}/**/*.js`
   ])
-  .pipe(concat({ path: 'scripts.js'}))
-  .pipe(uglify())
-  .pipe(dest(options.paths.build.js));
+    .pipe(concat({ path: 'scripts.js' }))
+    .pipe(uglify())
+    .pipe(dest(options.paths.build.js));
 }
 
-function prodImages(){
+function prodImages() {
   return src(options.paths.src.img + '/**/*').pipe(imagemin()).pipe(dest(options.paths.build.img));
 }
 
-function prodClean(){
-  console.log("\n\t" + logSymbols.info,"Cleaning build folder for fresh start.\n");
+function prodClean() {
+  console.log("\n\t" + logSymbols.info, "Cleaning build folder for fresh start.\n");
   return del([options.paths.build.base]);
 }
 
-function buildFinish(done){
-  console.log("\n\t" + logSymbols.info,`Production build is complete. Files are located at ${options.paths.build.base}\n`);
+function buildFinish(done) {
+  console.log("\n\t" + logSymbols.info, `Production build is complete. Files are located at ${options.paths.build.base}\n`);
   done();
 }
 
