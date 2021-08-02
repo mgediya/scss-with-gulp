@@ -125,6 +125,10 @@ function prodImages() {
   return src(options.paths.src.img + '/**/*').pipe(imagemin()).pipe(dest(options.paths.build.img));
 }
 
+function prodFonts() {
+  return src(`${options.paths.src.fonts}/**/*`).pipe(dest(options.paths.build.fonts));
+}
+
 function prodClean() {
   console.log("\n\t" + logSymbols.info, "Cleaning build folder for fresh start.\n");
   return del([options.paths.build.base]);
@@ -144,6 +148,6 @@ exports.default = series(
 
 exports.prod = series(
   prodClean, // Clean Build Folder
-  parallel(prodStyles, prodScripts, prodImages, prodHTML, devFonts), //Run All tasks in parallel
+  parallel(prodStyles, prodScripts, prodImages, prodHTML, prodFonts), //Run All tasks in parallel
   buildFinish
 );
