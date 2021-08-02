@@ -53,12 +53,15 @@ function devHTML(){
 } 
 
 function devStyles(){
-  return src(`${options.paths.src.css}/**/*.scss`).pipe(sass().on('error', sass.logError))
+  return src(`${options.paths.src.css}/**/*.scss`)
+  .pipe(sourcemaps.init())
+  .pipe(sass().on('error', sass.logError))
     .pipe(postcss([
       require('autoprefixer'),
     ]))
     .pipe(concat({ path: 'style.css'}))
     .pipe(cleanCSS())
+    .pipe(sourcemaps.write('.'))
     .pipe(dest(options.paths.dist.css));
 }
 
