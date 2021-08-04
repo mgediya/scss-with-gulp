@@ -98,7 +98,7 @@ function prodHTML() {
 }
 
 function prodStyles() {
-  return src(`${options.paths.dist.css}/**/*`)
+  return src(`${options.paths.dist.css}/**/*.css`)
     .pipe(purgecss({
       content: ['src/**/*.{html,js}'],
       defaultExtractor: content => {
