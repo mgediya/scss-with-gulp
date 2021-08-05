@@ -52,7 +52,7 @@ function devHTML() {
 }
 
 function devStyles() {
-  return src(`${options.paths.src.css}/**/*.scss`)
+  return src(`${options.paths.src.scss}/**/*.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(concat({ path: 'style.css' }))
@@ -79,7 +79,7 @@ function devFonts() {
 
 function watchFiles() {
   watch(`${options.paths.src.base}/**/*.html`, series(devHTML, devStyles, previewReload));
-  watch(`${options.paths.src.css}/**/*.scss`, series(devStyles, previewReload));
+  watch(`${options.paths.src.scss}/**/*.scss`, series(devStyles, previewReload));
   watch(`${options.paths.src.js}/**/*.js`, series(devScripts, previewReload));
   watch(`${options.paths.src.fonts}/**/*`, series(devFonts, devHTML, previewReload));
   watch(`${options.paths.src.img}/**/*`, series(devImages, previewReload));
