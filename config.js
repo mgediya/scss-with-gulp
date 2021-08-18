@@ -3,27 +3,22 @@ module.exports = {
 		port: 9050
 	},
 	paths: {
-		root: "./",
+		root: ".",
 		src: {
 			base: "./src",
 			scss: "./src/scss",
 			js: "./src/js",
 			img: "./src/images",
-			fonts: "./src/fonts"
+			fonts: "./src/fonts",
+			webfonts: "./src/webfonts"
 		},
-		dist: {
-			base: "./dist",
-			css: "./dist/css",
-			js: "./dist/js",
-			img: "./dist/images",
-			fonts: "./dist/fonts"
-		},
-		build: {
-			base: "./build",
-			css: "./build/css",
-			js: "./build/js",
-			img: "./build/images",
-			fonts: "./build/fonts"
+		public: {
+			base: "./public",
+			css: "./public/css",
+			js: "./public/js",
+			img: "./public/images",
+			fonts: "./public/fonts",
+			webfonts: "./public/webfonts"
 		}
 	}
 }
