@@ -6,7 +6,8 @@
   "dependencies": {
     "gulp-sourcemaps": "^3.0.0",
     "node-sass": "^5.0.0",
-    "postcss": "^8.2.9"
+    "postcss": "^8.2.9",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",

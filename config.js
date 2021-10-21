@@ -5,20 +5,18 @@ module.exports = {
 	paths: {
 		root: ".",
 		src: {
-			base: "./src",
-			scss: "./src/scss",
-			js: "./src/js",
-			img: "./src/images",
-			fonts: "./src/fonts",
-			webfonts: "./src/webfonts"
+			base: "./assets/src",
+			scss: "./assets/src/scss",
+			js: "./assets/src/js",
+			img: "./assets/src/images",
+			fonts: "./assets/src/fonts",
 		},
-		public: {
-			base: "./public",
-			css: "./public/css",
-			js: "./public/js",
-			img: "./public/images",
-			fonts: "./public/fonts",
-			webfonts: "./public/webfonts"
+		dest: {
+			base: "./assets/dest",
+			css: "./assets/dest/css",
+			js: "./assets/dest/js",
+			img: "./assets/dest/images",
+			fonts: "./assets/dest/fonts",
 		}
 	}
 }

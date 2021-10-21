@@ -28,8 +28,7 @@ Thumbs.db
 ##########
 build
 dist
+dest
 .sass-cache
-html/.sass-cache
-assets/fonts/*.html
 .vscode
 node_modules

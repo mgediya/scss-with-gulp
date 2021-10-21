@@ -29,27 +29,20 @@ To change the path of files and destination/build folder, edit options in **conf
       port: 9050 // browser preview port
   },
   	paths: {
-		root: "./",
+		root: ".",
 		src: {
-			base: "./src",
-			scss: "./src/scss",
-			js: "./src/js",
-			img: "./src/images",
-			fonts: "./src/fonts"
+			base: "./assets/src",
+			scss: "./assets/src/scss",
+			js: "./assets/src/js",
+			img: "./assets/src/images",
+			fonts: "./assets/src/fonts",
 		},
-		dist: {
-			base: "./dist",
-			css: "./dist/css",
-			js: "./dist/js",
-			img: "./dist/images",
-			fonts: "./dist/fonts"
-		},
-		build: {
-			base: "./build",
-			css: "./build/dist/css",
-			js: "./build/dist/js",
-			img: "./build/dist/images",
-			fonts: "./build/dist/fonts"
+		dest: {
+			base: "./assets/dest",
+			css: "./assets/dest/css",
+			js: "./assets/dest/js",
+			img: "./assets/dest/images",
+			fonts: "./assets/dest/fonts",
 		}
 	}
   ...
