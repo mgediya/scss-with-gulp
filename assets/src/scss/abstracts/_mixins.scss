@@ -2,7 +2,7 @@
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
 
-// media query mixin
+// Media Query mixin
 //  RESPOND ABOVE
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 // @include respond-above(sm) {}
@@ -169,18 +169,18 @@
     &::-webkit-scrollbar-track {
         border-radius: 10px;
         -webkit-border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 6px rgba($black, 0.3);
+        --webkit-box-shadow: inset 0 0 6px rgba($black, 0.3);
     }
 
     &::-webkit-scrollbar-thumb {
         -webkit-border-radius: 10px;
         border-radius: 10px;
         background: rgba($color1, 0.8);
-        -webkit-box-shadow: inset 0 0 6px rgba($black, 0.5);
+        --webkit-box-shadow: inset 0 0 6px rgba($black, 0.5);
     }
 
     &::-webkit-scrollbar-thumb:window-inactive {
-        background: $primary;
+        background: $primary-100;
     }
 }
 
@@ -188,7 +188,6 @@
 @mixin container-space($position: "", $value: $container-width + $gutters) {
     @if ($position== "left") {
         padding-left: calc((100% - #{$value}) / 2);
-
         > div {
             padding-left: $gutters / 2;
 
@@ -198,7 +197,6 @@
         }
     } @else if($position== "right") {
         padding-right: calc((100% - #{$value}) / 2);
-
         > div {
             padding-right: $gutters / 2;
 
@@ -222,14 +220,15 @@
 }
 
 // Picture Image
-@mixin pictureImg {
+@mixin pictureImg($pos: absolute) {
+    position: relative;
     picture {
-        position: absolute;
+        position: $pos;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-
+        display: block;
         img {
             width: 100%;
             height: 100%;
@@ -237,7 +236,17 @@
         }
     }
 }
-
+// Img fit
+@mixin imgFit($pos: absolute) {
+    img {
+        position: $pos;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
 // Flex-center
 @mixin flex-center {
     display: flex;
