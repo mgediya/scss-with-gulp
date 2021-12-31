@@ -5098,6 +5098,11 @@ sass-graph@2.2.5:
     scss-tokenizer "^0.2.3"
     yargs "^13.3.2"
 
+sass-migrator@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/sass-migrator/-/sass-migrator-1.5.3.tgz#a2989e937f3ce032a6b66d333d5242daed06233c"
+  integrity sha512-EyWLvkHPiVbBptblFVMHbzcNgHTSIy1F38lpgH5xf9IHBCHYQbmynXzMcdpWg4+R8NGW8u9XoWpcRizll+OYMg==
+
 sass@^1.44.0:
   version "1.44.0"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.44.0.tgz#619aa0a2275c097f9af5e6b8fe8a95e3056430fb"
