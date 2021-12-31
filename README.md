@@ -4,8 +4,12 @@
 
 1. Install Dev Depedencies
 ```sh
-node v14 and upper
+node v16
 ```
+```sh
+yarn 1.22.17
+```
+
 2. Install Dev Depedencies
 ```sh
 npm install // or yarn install

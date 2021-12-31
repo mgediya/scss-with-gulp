@@ -5,8 +5,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: $gutters / 2;
-    padding-right: $gutters / 2;
+    padding-left: $gutters;
+    padding-right: $gutters;
     @include respond-below(md) {
         padding-left: rem(20px);
         padding-right: rem(20px);
@@ -14,11 +14,9 @@
 }
 .container {
     @extend %container;
-    max-width: $container-width + $gutters;
+    max-width: $container-width + $gutters * 2;
     &-fluid {
         @extend %container;
-        padding-right: rem(50px);
-        padding-left: rem(50px);
     }
 }
 
@@ -26,8 +24,8 @@
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -$row-gutters / 2;
-    margin-left: -$row-gutters / 2;
+    margin-right: calc(-#{$row-gutters} / 2);
+    margin-left: calc(-#{$row-gutters} / 2);
 
     &.no-gutters {
         margin-right: 0;
@@ -43,8 +41,8 @@
 [class*="cell-"] {
     position: relative;
     width: 100%;
-    padding-left: $row-gutters / 2;
-    padding-right: $row-gutters / 2;
+    padding-left: calc(#{$row-gutters} / 2);
+    padding-right: calc(#{$row-gutters} / 2);
 }
 
 /* align item */

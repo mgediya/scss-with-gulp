@@ -1,6 +1,6 @@
 /**
-*   Gulp  - SCSS framework                                
-*   Author : ZWT                                    
+*   Gulp  - SCSS framework
+*   Author : ZWT
 **/
 
 /*
@@ -10,19 +10,16 @@
   3. npm run prod //To generate minifed files for live server
 */
 
-const { src, dest, task, watch, series, parallel } = require('gulp');
+const { src, dest, watch, series, parallel } = require('gulp');
 const del = require('del'); //For Cleaning build/dest for fresh export
 const options = require("./config"); //paths and other options from config.js
 const browserSync = require('browser-sync').create();
 
-const sass = require('gulp-sass'); //For Compiling SASS files
+const sass = require('gulp-sass')(require('sass')); //For Compiling SASS files
 const concat = require('gulp-concat'); //For Concatinating js,css files
 const uglify = require('gulp-terser');//To Minify JS files
-const imagemin = require('gulp-imagemin'); //To Optimize Images
 const cleanCSS = require('gulp-clean-css');//To Minify CSS files
 const sourcemaps = require('gulp-sourcemaps'); // To show sourcemap
-
-const logSymbols = require('log-symbols'); //For Symbolic Console logs :) :P  
 
 //Load Previews on Browser on dev
 function livePreview(done) {
@@ -37,7 +34,7 @@ function livePreview(done) {
 
 // Triggers Browser reload
 function previewReload(done) {
-  console.log("\n\t" + logSymbols.info, "Reloading Browser Preview.\n");
+  console.log("Reloading Browser Preview.\n");
   browserSync.reload();
   done();
 }
@@ -74,11 +71,11 @@ function watchFiles() {
   watch(`${options.paths.src.js}/**/*.js`, series(devScripts, previewReload));
   watch(`${options.paths.src.fonts}/**/*`, series(devFonts, previewReload));
   watch(`${options.paths.src.img}/**/*`, series(devImages, previewReload));
-  console.log("\n\t" + logSymbols.info, "Watching for Changes..\n");
+  console.log("Watching for Changes..\n");
 }
 
 function devClean() {
-  console.log("\n\t" + logSymbols.info, "Cleaning dest folder for fresh start.\n");
+  console.log("Cleaning dest folder for fresh start.\n");
   return del([options.paths.dest.base]);
 }
 
@@ -101,21 +98,17 @@ function prodScripts() {
     .pipe(dest(options.paths.dest.js));
 }
 
-function prodImages() {
-  return src(options.paths.src.img + '/**/*').pipe(imagemin()).pipe(dest(options.paths.dest.img));
-}
-
 function prodFonts() {
   return src(`${options.paths.src.fonts}/**/*`).pipe(dest(options.paths.dest.fonts));
 }
 
 function prodClean() {
-  console.log("\n\t" + logSymbols.info, "Cleaning build folder for fresh start.\n");
+  console.log("Cleaning build folder for fresh start.\n");
   return del([options.paths.dest.base]);
 }
 
 function buildFinish(done) {
-  console.log("\n\t" + logSymbols.info, `Production build is complete. Files are located at ${options.paths.dest.base}\n`);
+  console.log(`Production build is complete. Files are located at ${options.paths.dest.base}\n`);
   done();
 }
 
@@ -128,6 +121,6 @@ exports.default = series(
 
 exports.prod = series(
   prodClean, // Clean Build Folder
-  parallel(prodStyles, prodScripts, prodImages , prodFonts), //Run All tasks in parallel
+  parallel(prodStyles, prodScripts , prodFonts), //Run All tasks in parallel
   buildFinish
 );
