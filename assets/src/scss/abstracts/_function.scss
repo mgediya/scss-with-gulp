@@ -1,5 +1,5 @@
 $base: 16px;
-$decimal-value: true;
+$decimal-value: false;
 
 @function decimal-round($number, $digits: 0, $mode: round) {
     $n: 1;
@@ -24,11 +24,11 @@ $decimal-value: true;
     }
 
     @if $mode==round {
-        @return calc(round($number * $n) / $n);
+        @return round(calc(($number * $n) / $n));
     } @else if $mode==ceil {
-        @return calc(ceil($number * $n) / $n);
+        @return ceil(calc(($number * $n) / $n));
     } @else if $mode==floor {
-        @return calc(floor($number * $n) / $n);
+        @return floor(calc(($number * $n) / $n));
     } @else {
         @warn "#{$mode} is undefined keyword.";
         @return $number;
@@ -46,16 +46,16 @@ $decimal-value: true;
 // PX to REM
 @function rem($target, $context: $base) {
     @if ($decimal-value==true) {
-        @return decimal-ceil(calc($target / $context)) + 0rem;
+        @return decimal-ceil(calc($target / $context * 1rem));
     } @else {
-        @return ($target / $context)+0rem;
+        @return  calc($target / $context * 1rem);
     }
 }
 
 // PX to EM
 @function em($target, $context: $base) {
     @if ($decimal-value==true) {
-        @return decimal-ceil($target / $context) + 0em;
+        @return decimal-ceil(calc($target / $context *1rem));
     } @else {
         @return ($target / $context)+0em;
     }
@@ -63,12 +63,12 @@ $decimal-value: true;
 
 // PX to PERCENT
 @function pxtopercent($target, $parent: $base) {
-    @return percentage(calc($target / $parent));
+    @return calc($target / $parent * 100%);
 }
 
 // aspect-ratio
 @function aspect-ratio($width, $height) {
-    @return $height / $width * 100%;
+    @return calc($height / $width * 100%);
 }
 
 // common folder path
@@ -93,22 +93,5 @@ $decimal-value: true;
 
 // letter spacing add in px
 @function ls($val) {
-    @return ($val / 1000) * 1em;
+    @return calc($val / 1000 * 1em);
 }
-
-// // css min,max,clamp properties
-// @function css-function($function, $values...) {
-//     @return $function + unquote("(") + $values + unquote(")");
-// }
-
-// @function min($values...) {
-//     @return css-function(min, $values);
-// }
-
-// @function max($values...) {
-//     @return css-function(max, $values);
-// }
-
-// @function clamp($values...) {
-//     @return css-function(clamp, $values);
-// }

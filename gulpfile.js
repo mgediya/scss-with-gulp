@@ -57,10 +57,7 @@ function devScripts() {
   ]).pipe(concat({ path: 'scripts.min.js' })).pipe(dest(options.paths.dest.js));
 }
 
-function devImages() {
-  return src(`${options.paths.src.img}/**/*`).pipe(dest(options.paths.dest.img));
-}
-
+console.log(options.paths.src.fonts)
 function devFonts() {
   return src(`${options.paths.src.fonts}/**/*`).pipe(dest(options.paths.dest.fonts));
 }
@@ -70,7 +67,6 @@ function watchFiles() {
   watch(`${options.paths.src.scss}/**/*.scss`, series(devStyles, previewReload));
   watch(`${options.paths.src.js}/**/*.js`, series(devScripts, previewReload));
   watch(`${options.paths.src.fonts}/**/*`, series(devFonts, previewReload));
-  watch(`${options.paths.src.img}/**/*`, series(devImages, previewReload));
   console.log("Watching for Changes..\n");
 }
 
@@ -114,7 +110,7 @@ function buildFinish(done) {
 
 exports.default = series(
   devClean, // Clean dest Folder
-  parallel(devStyles, devScripts, devImages, devFonts), //Run All tasks in parallel
+  parallel(devStyles, devScripts, devFonts), //Run All tasks in parallel
   livePreview, // Live Preview Build
   watchFiles // Watch for Live Changes
 );
