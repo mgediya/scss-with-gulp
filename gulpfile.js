@@ -17,7 +17,6 @@ const browserSync = require('browser-sync').create();
 
 const sass = require('gulp-sass')(require('sass')); //For Compiling SASS files
 const concat = require('gulp-concat'); //For Concatinating js,css files
-const uglify = require('gulp-terser');//To Minify JS files
 const cleanCSS = require('gulp-clean-css');//To Minify CSS files
 const sourcemaps = require('gulp-sourcemaps'); // To show sourcemap
 
@@ -49,24 +48,9 @@ function devStyles() {
     .pipe(dest(options.paths.dest.css));
 }
 
-function devScripts() {
-  return src([
-    `${options.paths.src.js}/libs/**/*.js`,
-    `${options.paths.src.js}/**/*.js`,
-    `!${options.paths.src.js}/**/external/*`
-  ]).pipe(concat({ path: 'scripts.min.js' })).pipe(dest(options.paths.dest.js));
-}
-
-console.log(options.paths.src.fonts)
-function devFonts() {
-  return src(`${options.paths.src.fonts}/**/*`).pipe(dest(options.paths.dest.fonts));
-}
-
 function watchFiles() {
   watch(`${options.paths.root}/**/*.html`, series(previewReload));
   watch(`${options.paths.src.scss}/**/*.scss`, series(devStyles, previewReload));
-  watch(`${options.paths.src.js}/**/*.js`, series(devScripts, previewReload));
-  watch(`${options.paths.src.fonts}/**/*`, series(devFonts, previewReload));
   console.log("Watching for Changes..\n");
 }
 
@@ -84,20 +68,6 @@ function prodStyles() {
     .pipe(dest(options.paths.dest.css));
 }
 
-function prodScripts() {
-  return src([
-    `${options.paths.src.js}/libs/**/*.js`,
-    `${options.paths.src.js}/**/*.js`
-  ])
-    .pipe(concat({ path: 'scripts.min.js' }))
-    .pipe(uglify())
-    .pipe(dest(options.paths.dest.js));
-}
-
-function prodFonts() {
-  return src(`${options.paths.src.fonts}/**/*`).pipe(dest(options.paths.dest.fonts));
-}
-
 function prodClean() {
   console.log("Cleaning build folder for fresh start.\n");
   return del([options.paths.dest.base]);
@@ -110,13 +80,13 @@ function buildFinish(done) {
 
 exports.default = series(
   devClean, // Clean dest Folder
-  parallel(devStyles, devScripts, devFonts), //Run All tasks in parallel
+  parallel(devStyles), //Run All tasks in parallel
   livePreview, // Live Preview Build
   watchFiles // Watch for Live Changes
 );
 
 exports.prod = series(
   prodClean, // Clean Build Folder
-  parallel(prodStyles, prodScripts , prodFonts), //Run All tasks in parallel
+  parallel(prodStyles), //Run All tasks in parallel
   buildFinish
 );

@@ -5,16 +5,12 @@ module.exports = {
 	paths: {
 		root: ".",
 		src: {
-			base: "./assets/src",
-			scss: "./assets/src/scss",
-			js: "./assets/src/js",
-			fonts: "./assets/src/fonts",
+			base: "./assets",
+			scss: "./assets/scss",
 		},
 		dest: {
 			base: "./assets/dest",
 			css: "./assets/dest/css",
-			js: "./assets/dest/js",
-			fonts: "./assets/dest/fonts",
 		}
 	}
 }
