@@ -14,11 +14,15 @@ yarn 1.22.17
 ```sh
 npm install // or yarn install
 ```
-3. To start development and server for live preview
+3. Automatic Migration
+```sh
+sass-migrator division **/*.scss
+```
+4. To start development and server for live preview
 ```sh
 npm run dev // or yarn dev
 ```
-4. To generate minifed files for production server
+5. To generate minifed files for production server
 ```sh
 npm run prod // or yarn prod
 ```

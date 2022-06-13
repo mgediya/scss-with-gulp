@@ -122,12 +122,12 @@
 
 // row space
 @mixin row-space($value) {
-    margin-right: rem(-$value/2);
-    margin-left: rem(-$value/2);
+    margin-right: rem(-$value*0.5);
+    margin-left: rem(-$value*0.5);
 
     [class*="cell-"] {
-        padding-left: rem($value/2);
-        padding-right: rem($value/2);
+        padding-left: rem($value*0.5);
+        padding-right: rem($value*0.5);
     }
 }
 

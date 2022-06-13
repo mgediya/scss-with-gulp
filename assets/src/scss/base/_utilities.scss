@@ -1,7 +1,9 @@
 /**
  * Main content containers
  */
- %container {
+ @use "sass:math";
+
+%container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -24,8 +26,8 @@
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: calc(-#{$row-gutters} / 2);
-    margin-left: calc(-#{$row-gutters} / 2);
+    margin-right: $row-gutters * 0.5 * -1;
+    margin-left: $row-gutters * 0.5 * -1;
 
     &.no-gutters {
         margin-right: 0;
@@ -41,8 +43,8 @@
 [class*="cell-"] {
     position: relative;
     width: 100%;
-    padding-left: calc(#{$row-gutters} / 2);
-    padding-right: calc(#{$row-gutters} / 2);
+    padding-left: $row-gutters * 0.5;
+    padding-right: $row-gutters * 0.5;
 }
 
 /* align item */
@@ -176,7 +178,7 @@ $sidesX: left, right;
 
 @for $i from 1 through $grid-columns {
     .cell-#{$i} {
-        width: percentage(calc($i / $grid-columns));
+        width: percentage(math.div($i, $grid-columns));
     }
 }
 
@@ -187,14 +189,14 @@ $sidesX: left, right;
             .m#{str-slice($side, 0, 1)}-#{$space},
             .m-#{$space},
             .my-#{$space} {
-                margin-#{$side}: #{calc($space / 16)}rem;
+                margin-#{$side}: #{math.div($space, 16)}rem;
             }
 
             // padding
             .p#{str-slice($side, 0, 1)}-#{$space},
             .p-#{$space},
             .py-#{$space} {
-                padding-#{$side}: #{calc($space / 16)}rem;
+                padding-#{$side}: #{math.div($space, 16)}rem;
             }
         }
 
@@ -203,14 +205,14 @@ $sidesX: left, right;
             .m#{str-slice($side, 0, 1)}-#{$space},
             .m-#{$space},
             .mx-#{$space} {
-                margin-#{$side}: #{calc($space / 16)}rem;
+                margin-#{$side}: #{math.div($space, 16)}rem;
             }
 
             // padding
             .p#{str-slice($side, 0, 1)}-#{$space},
             .p-#{$space},
             .px-#{$space} {
-                padding-#{$side}: #{calc($space / 16)}rem;
+                padding-#{$side}: #{math.div($space, 16)}rem;
             }
         }
     }
@@ -220,7 +222,7 @@ $sidesX: left, right;
     @include respond-above($bp-key) {
         @for $i from 1 through $grid-columns {
             .cell-#{$bp-key}-#{$i} {
-                width: percentage(calc($i / $grid-columns));
+                width: percentage(math.div($i, $grid-columns));
             }
         }
 
@@ -231,14 +233,14 @@ $sidesX: left, right;
                     .m#{str-slice($side, 0, 1)}-#{$bp-key}-#{$space},
                     .m-#{$bp-key}-#{$space},
                     .my-#{$bp-key}-#{$space} {
-                        margin-#{$side}: #{calc($space / 16)}rem;
+                        margin-#{$side}: #{math.div($space, 16)}rem;
                     }
 
                     // padding
                     .p#{str-slice($side, 0, 1)}-#{$bp-key}-#{$space},
                     .p-#{$bp-key}-#{$space},
                     .py-#{$bp-key}-#{$space} {
-                        padding-#{$side}: #{calc($space / 16)}rem;
+                        padding-#{$side}: #{math.div($space, 16)}rem;
                     }
                 }
 
@@ -247,14 +249,14 @@ $sidesX: left, right;
                     .m#{str-slice($side, 0, 1)}-#{$bp-key}-#{$space},
                     .m-#{$bp-key}-#{$space},
                     .mx-#{$bp-key}-#{$space} {
-                        margin-#{$side}: #{calc($space / 16)}rem;
+                        margin-#{$side}: #{math.div($space, 16)}rem;
                     }
 
                     // padding
                     .p#{str-slice($side, 0, 1)}-#{$bp-key}-#{$space},
                     .p-#{$bp-key}-#{$space},
                     .px-#{$bp-key}-#{$space} {
-                        padding-#{$side}: #{calc($space / 16)}rem;
+                        padding-#{$side}: #{math.div($space, 16)}rem;
                     }
                 }
             }
