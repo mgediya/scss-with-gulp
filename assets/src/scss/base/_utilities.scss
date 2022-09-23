@@ -4,19 +4,24 @@
 @use "sass:math";
 
 %container {
-    width: 100%;
+    --gutter: #{$gutters};
+    // max-width: calc(var(--container-width, none) + var(--gutter) * 2);
+    // width: min(100%, calc(var(--container-width, none) + var(--gutter) * 2));
+    width: min(calc(100% - var(--gutter) * 2), calc(var(--container-width, none)));
     margin-left: auto;
     margin-right: auto;
-    padding-left: $gutters;
-    padding-right: $gutters;
+    // padding-left: var(--gutter);
+    // padding-right: var(--gutter);
+
     @include respond-below(md) {
-        padding-left: rem(20px);
-        padding-right: rem(20px);
+        --gutter: #{rem(20px)};
     }
 }
+
 .container {
+    --container-width: #{$container-width};
     @extend %container;
-    max-width: $container-width + $gutters * 2;
+
     &-fluid {
         @extend %container;
     }
@@ -33,7 +38,7 @@
         margin-right: 0;
         margin-left: 0;
 
-        > [class*="cell-"] {
+        >[class*="cell-"] {
             padding-right: 0;
             padding-left: 0;
         }
@@ -160,7 +165,8 @@
 }
 
 // bg and text color
-@each $name, $color in $bgColor-map {
+@each $name,
+$color in $bgColor-map {
     .bg-#{$name} {
         background-color: $color;
     }
@@ -173,8 +179,10 @@
 /* column structure */
 $grid-columns: 12;
 
-$sidesY: top, bottom;
-$sidesX: left, right;
+$sidesY: top,
+bottom;
+$sidesX: left,
+right;
 
 @for $i from 1 through $grid-columns {
     .cell-#{$i} {
@@ -182,9 +190,10 @@ $sidesX: left, right;
     }
 }
 
-@if $spacing == true {
+@if $spacing==true {
     @each $space in $spaceamounts {
         @each $side in $sidesY {
+
             // margin
             .m#{str-slice($side, 0, 1)}-#{$space},
             .m-#{$space},
@@ -201,6 +210,7 @@ $sidesX: left, right;
         }
 
         @each $side in $sidesX {
+
             // margin
             .m#{str-slice($side, 0, 1)}-#{$space},
             .m-#{$space},
@@ -218,7 +228,8 @@ $sidesX: left, right;
     }
 }
 
-@each $bp-key, $bp in $breakpoints {
+@each $bp-key,
+$bp in $breakpoints {
     @include respond-above($bp-key) {
         @for $i from 1 through $grid-columns {
             .cell-#{$bp-key}-#{$i} {
@@ -226,9 +237,10 @@ $sidesX: left, right;
             }
         }
 
-        @if $spacing == true {
+        @if $spacing==true {
             @each $space in $spaceamounts {
                 @each $side in $sidesY {
+
                     // margin
                     .m#{str-slice($side, 0, 1)}-#{$bp-key}-#{$space},
                     .m-#{$bp-key}-#{$space},
@@ -245,6 +257,7 @@ $sidesX: left, right;
                 }
 
                 @each $side in $sidesX {
+
                     // margin
                     .m#{str-slice($side, 0, 1)}-#{$bp-key}-#{$space},
                     .m-#{$bp-key}-#{$space},
@@ -262,7 +275,7 @@ $sidesX: left, right;
             }
         }
 
-        @if $advance-utilities == true {
+        @if $advance-utilities==true {
             .d {
                 &-#{$bp-key} {
                     &-none {

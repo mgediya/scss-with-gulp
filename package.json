@@ -28,7 +28,7 @@
     "log-symbols": "^5.1.0"
   },
   "scripts": {
-    "dev": "gulp",
+    "dev": "sass-migrator division **/*.scss && gulp ",
     "build": "gulp prod",
     "prod": "gulp prod"
   },
